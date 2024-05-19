@@ -1,0 +1,119 @@
+:root {
+    --bg-img: url(https://cdn.shopify.com/s/files/1/0163/6622/files/Landscape_Photo_Tips.jpg?v=1660006499);
+    --vp-height: calc(100svh - 4rem);
+  } 
+  body {
+  /*   height: var(--vp-height); */
+    font-family: sans-serif;
+    line-height: 2;
+  }
+  h1 {
+    margin: 2ch 0;
+    text-align: center;
+  }
+  body::after {
+    content: "";
+    background-image: var(--bg-img);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;  
+    opacity: 0.4;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+  }
+  nav {
+    background:rgb(232, 226, 226);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    box-shadow: .12rem .12rem .2rem rgba(174, 164, 164, 0.1);
+  }
+  nav menu {
+  /*   background: pink; */
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  nav li {
+    height: 100%;
+    padding-inline: 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+  nav a {
+    height: 4ch;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  nav a:hover {
+    background: rgb(230, 226, 226);
+    box-shadow: 0 .12rem .1rem  rgb(231, 226, 226);
+  }
+  nav a:first-child {
+    margin-right: auto;
+  }
+  .sidebar {
+    display: none;
+    position: fixed;
+    padding: 0;
+    top: 0;
+    right: 0;
+    height: fit-content;
+    max-height: var(--vp-height);
+    width: min-content;
+    margin: 5ch;
+    z-index: 2;
+    box-shadow: .12rem .12rem .2rem rgb(231, 226, 226);
+    backdrop-filter: blur(.8rem);
+  /*   triggered by sidebarButton onClick display: flex; */
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    transition: display 200ms;
+  }
+  .sidebar li, .sidebar a {
+    width: 100%;
+  }
+  main {
+    margin-top: 8ch;
+  }
+  ol li {
+    max-width: calc(100svw - 6rem);
+  }
+  footer {
+    min-height: 2ch;
+    text-align: center;
+  }
+  @media (width > 800px) {
+    #sidebarButton {
+      display: none;
+    }
+  }
+  @media (width < 800px) {
+    body {
+      line-height: 1.5;
+    }
+    .topNav {
+      display: none;
+    }
+    ol li {
+      margin-bottom: 1ch;
+      background: rgba(215, 209, 209, 0.7);
+      max-width: 80svw;
+    }  
+  }
+  @media (width < 420px) {
+    .sidebar {
+      width: 100svw;
+    }
+    .sidebar li {
+      margin-left: 2rem;
+    }
+  }
